@@ -1,0 +1,156 @@
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+  height: 100vh;
+}
+.login-full {
+  background-image: url("./images/invoice-bg3.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+  font-family: "Exo 2", sans-serif;
+  height: 100vh;
+}
+.login-full h1 {
+  font-size: 70px;
+  text-align: center;
+}
+.signin-container {
+  opacity: 0.8;
+}
+.register-container,
+.signin-container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+}
+
+.register-form,
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.forgot-password {
+  text-align: right;
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+}
+
+.form-group button {
+  background-color: #0077b5;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-group button:hover {
+  background-color: #005983;
+}
+
+.register-link,
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #0077b5;
+  text-decoration: none;
+}
+
+/* Dashboard */
+
+.nav-container {
+  background-color: rgb(143, 143, 72);
+  height: 10vh;
+}
+.all_nav_items {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 0 3rem;
+  color: white;
+}
+.alerts-full {
+  width: 700px;
+  height: 300px;
+  border: 3px solid #005983;
+  margin: 2rem auto;
+}
+.alerts-full h1 {
+  text-align: center;
+}
+
+.register-full {
+  background-image: url("./images/invoice-bg3.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+  font-family: "Exo 2", sans-serif;
+  height: 100vh;
+}
+.register-full h1 {
+  font-size: 70px;
+  text-align: center;
+}
+.register-container {
+  opacity: 0.8;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+li {
+  cursor: pointer;
+}
+.create-invoice-full {
+  display: grid;
+  place-content: center;
+  font-family: "Exo 2", sans-serif;
+  height: 100vh;
+}
+.alert-warning{
+  color: black;
+}

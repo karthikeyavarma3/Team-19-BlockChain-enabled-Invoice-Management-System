@@ -1,0 +1,270 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Ether-Net</title>
+
+    <!-- Custom styles for this template
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <div class="nav-container">
+      <ul class="all_nav_items">
+        <li id="viewWalletAddressBtn">View Wallet Address</li>
+        <li id="viewAccountBalanceBtn">View Balance in Wallet</li>
+        <li onclick="">
+          <a href="./create_invoice.html"> Create Invoice </a>
+        </li>
+        <li>
+          <a href="./pay_invoice.html">Pay Invoice </a>
+        </li>
+        <li><a href="./pay_invoice.html">View Invoice </a></li>
+        <li><a href="./login.html">Logout</a></li>
+      </ul>
+    </div>
+    <div class="alerts-full">
+      <h1>Alert Center</h1>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const viewAccountBalanceBtn = document.getElementById(
+          "viewAccountBalanceBtn"
+        );
+        const viewWalletAddressBtn = document.getElementById(
+          "viewWalletAddressBtn"
+        );
+
+        viewAccountBalanceBtn.addEventListener("click", function () {
+          handleViewBalance();
+        });
+
+        viewWalletAddressBtn.addEventListener("click", function () {
+          handleViewWalletAddress();
+        });
+
+        payInvoiceBtn.addEventListener("click", function () {
+          window.location.href = "pay_invoice.html"; // Redirect to the Pay Invoice page
+        });
+      });
+
+      async function handleViewBalance() {
+        try {
+          if (typeof window.ethereum !== "undefined") {
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+            const web3 = new Web3(window.ethereum);
+            const accounts = await web3.eth.getAccounts();
+            const userAddress = accounts[0];
+            let walletB = await window.ethereum.request({
+              method: "eth_getBalance",
+              params: [userAddress, "latest"],
+            });
+            alert(
+              "User Wallet Balance: " + parseInt(walletB) / 10 ** 18 + " Ether"
+            );
+          } else {
+            console.error(
+              "MetaMask not detected. Please install MetaMask extension."
+            );
+          }
+        } catch (error) {
+          console.log("Hi");
+          console.error("MetaMask connection error:", error.message);
+        }
+      }
+
+      async function handleViewWalletAddress() {
+        try {
+          if (typeof window.ethereum !== "undefined") {
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+
+            const web3 = new Web3(window.ethereum);
+            const accounts = await web3.eth.getAccounts();
+            const userAddress = accounts[0];
+            alert("User Wallet Address: " + userAddress);
+          } else {
+            console.error(
+              "MetaMask not detected. Please install MetaMask extension."
+            );
+          }
+        } catch (error) {
+          console.error("MetaMask connection error:", error.message);
+        }
+      }
+    </script>
+  </body>
+</html> --> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Ether-Net</title>
+
+  <!-- Custom styles for this template-->
+  <link href="styles.css" rel="stylesheet" />
+</head> -->
+
+<body id="page-top">
+  <div class="nav-container">
+    <ul class="all_nav_items">
+      <li id="viewWalletAddressBtn">View Wallet Address</li>
+      <li id="viewAccountBalanceBtn">View Balance in Wallet</li>
+      <li onclick="">
+        <a href="./create_invoice.html"> Create Invoice </a>
+      </li>
+      <li>
+        <a href="./pay_invoice.html">Pay Invoice </a>
+      </li>
+      <li><a href="./pay_invoice.html">View Invoice </a></li>
+      <li><a href="./login.html">Logout</a></li>
+    </ul>
+  </div>
+  <div class="alerts-full">
+    <h1>Alert Center</h1>
+
+    <!-- Monthly Report Alert -->
+    <div class="notification-item alert alert-warning">
+      <div>
+        <div class="alert-heading">December 12, 2023</div>
+        A new monthly report is ready to download!
+        <br />
+        <br />
+      </div>
+    </div>
+
+    <!-- Deposit Alert -->
+    <a class="dropdown-item alert alert-success" href="#">
+      <div class="d-flex align-items-center">
+        <div class="mr-3">
+          <div class="icon-circle bg-success">
+            <i class="fas fa-donate text-white"></i>
+          </div>
+        </div>
+        <div>
+          <div class="alert-heading">December 7, 2024</div>
+          $290.29 has been deposited into your account!
+        </div>
+      </div>
+    </a>
+
+    <!-- Spending Alert -->
+    <a class="dropdown-item alert alert-warning" href="#">
+      <div class="d-flex align-items-center">
+        <div class="mr-3">
+          <div class="icon-circle bg-warning">
+            <i class="fas fa-exclamation-triangle text-white"></i>
+          </div>
+        </div>
+        <div>
+          <div class="alert-heading">December 2, 2024</div>
+          Spending Alert: We've noticed unusually high spending for your account.
+        </div>
+      </div>
+    </a>
+
+    <!-- Invoice Notification -->
+    <a class="dropdown-item alert alert-info" href="#">
+      <div class="d-flex align-items-center">
+        <div class="mr-3">
+          <div class="icon-circle bg-info">
+            <i class="fas fa-file-invoice text-white"></i>
+          </div>
+        </div>
+        <div>
+          <div class="alert-heading">January 15, 2024</div>
+          Invoice Notification: You have a new invoice pending.
+        </div>
+      </div>
+    </a>
+
+    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+  </div>
+
+  <script
+    type="text/javascript"
+    src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"
+  ></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const viewAccountBalanceBtn = document.getElementById("viewAccountBalanceBtn");
+      const viewWalletAddressBtn = document.getElementById("viewWalletAddressBtn");
+
+      viewAccountBalanceBtn.addEventListener("click", function () {
+        handleViewBalance();
+      });
+
+      viewWalletAddressBtn.addEventListener("click", function () {
+        handleViewWalletAddress();
+      });
+
+      payInvoiceBtn.addEventListener("click", function () {
+        window.location.href = "pay_invoice.html"; // Redirect to the Pay Invoice page
+      });
+    });
+
+    async function handleViewBalance() {
+      try {
+        if (typeof window.ethereum !== "undefined") {
+          await window.ethereum.request({ method: "eth_requestAccounts" });
+          const web3 = new Web3(window.ethereum);
+          const accounts = await web3.eth.getAccounts();
+          const userAddress = accounts[0];
+          let walletB = await window.ethereum.request({
+            method: "eth_getBalance",
+            params: [userAddress, "latest"],
+          });
+          alert(
+            "User Wallet Balance: " + parseInt(walletB) / 10 ** 18 + " Ether"
+          );
+        } else {
+          console.error(
+            "MetaMask not detected. Please install MetaMask extension."
+          );
+        }
+      } catch (error) {
+        console.log("Hi");
+        console.error("MetaMask connection error:", error.message);
+      }
+    }
+
+    async function handleViewWalletAddress() {
+      try {
+        if (typeof window.ethereum !== "undefined") {
+          await window.ethereum.request({ method: "eth_requestAccounts" });
+
+          const web3 = new Web3(window.ethereum);
+          const accounts = await web3.eth.getAccounts();
+          const userAddress = accounts[0];
+          alert("User Wallet Address: " + userAddress);
+        } else {
+          console.error(
+            "MetaMask not detected. Please install MetaMask extension."
+          );
+        }
+      } catch (error) {
+        console.error("MetaMask connection error:", error.message);
+      }
+    }
+  </script>
+</body>
+</html>
+

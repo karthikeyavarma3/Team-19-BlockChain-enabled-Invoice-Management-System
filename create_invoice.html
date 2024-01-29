@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Create Invoice</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Your custom styles -->
+    <link href="styles.css" rel="stylesheet" />
+
+    <!-- Additional styles for the dashboard -->
+  </head>
+
+  <body id="page-top">
+    <!-- Division Container -->
+    <div class="nav-container">
+      <ul class="all_nav_items">
+        <li id="viewWalletAddressBtn">View Wallet Address</li>
+        <li id="viewAccountBalanceBtn">View Balance in Wallet</li>
+        <li onclick="">
+          <a href="./create_invoice.html"> Create Invoice </a>
+        </li>
+        <li>
+          <a href="./pay_invoice.html">Pay Invoice </a>
+        </li>
+        <li><a href="./pay_invoice.html">View Invoice </a></li>
+        <li><a href="./login.html">Logout</a></li>
+      </ul>
+    </div>
+
+    <!-- Create Invoice Form -->
+    <div class="create-invoice-full">
+      <div class="register-container">
+        <h2>Create Invoice</h2>
+        <form id="createInvoiceForm" class="register-form">
+          <div class="form-group">
+            <label for="fromWallet">From Wallet Address</label>
+            <input
+              type="text"
+              id="fromWallet"
+              name="fromWallet"
+              placeholder="Enter from wallet address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="customerWallet">Customer Wallet Address</label>
+            <input
+              type="text"
+              id="customerWallet"
+              name="customerWallet"
+              placeholder="Enter customer wallet address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="totalAmount">Total Amount</label>
+            <input
+              type="number"
+              id="totalAmount"
+              name="totalAmount"
+              placeholder="Enter total amount"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="date" id="dueDate" name="dueDate" required />
+          </div>
+          <div class="form-group">
+            <label for="comments">Comments</label>
+            <textarea
+              id="comments"
+              name="comments"
+              placeholder="Enter comments"
+            ></textarea>
+          </div>
+          <button type="button" onclick="createInvoice()">
+            Create Invoice
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Your other scripts and styles -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const viewAccountBalanceBtn = document.getElementById(
+          "viewAccountBalanceBtn"
+        );
+        const viewWalletAddressBtn = document.getElementById(
+          "viewWalletAddressBtn"
+        );
+
+        viewAccountBalanceBtn.addEventListener("click", function () {
+          handleViewBalance();
+        });
+
+        viewWalletAddressBtn.addEventListener("click", function () {
+          handleViewWalletAddress();
+        });
+      });
+
+      async function handleViewBalance() {
+        try {
+          if (typeof window.ethereum !== "undefined") {
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+            const web3 = new Web3(window.ethereum);
+            const accounts = await web3.eth.getAccounts();
+            const userAddress = accounts[0];
+            let walletB = await window.ethereum.request({
+              method: "eth_getBalance",
+              params: [userAddress, "latest"],
+            });
+            alert(
+              "User Wallet Balance: " + parseInt(walletB) / 10 ** 18 + " Ether"
+            );
+          } else {
+            console.error(
+              "MetaMask not detected. Please install MetaMask extension."
+            );
+          }
+        } catch (error) {
+          console.log("Hi");
+          console.error("MetaMask connection error:", error.message);
+        }
+      }
+
+      async function handleViewWalletAddress() {
+        try {
+          if (typeof window.ethereum !== "undefined") {
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+
+            const web3 = new Web3(window.ethereum);
+            const accounts = await web3.eth.getAccounts();
+            const userAddress = accounts[0];
+            alert("User Wallet Address: " + userAddress);
+          } else {
+            console.error(
+              "MetaMask not detected. Please install MetaMask extension."
+            );
+          }
+        } catch (error) {
+          console.error("MetaMask connection error:", error.message);
+        }
+      }
+    </script>
+  </body>
+</html>
